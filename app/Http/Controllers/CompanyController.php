@@ -94,11 +94,18 @@ class CompanyController extends Controller
         return redirect()->route('companies.index');
     }
 
+    /**
+     * Show the mail creation view.
+     */
     public function createEmail(Company $company)
     {
         return view('dashboard.companies.email', compact('company'));
     }
 
+
+    /**
+     * Send the mail.
+     */
     public function sendEmail(SendMailRequest $request, Company $company)
     {
         $mailData = $request->validated();
